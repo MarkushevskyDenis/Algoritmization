@@ -15,7 +15,7 @@ public class ArrOfArr8 {
         int b;
         int[][] arr = {{1, 2, 3, 10}, {6, 7, 8, 9}, {1, 5, 7, 8}};
 
-        int swap[] = new int[arr.length];
+        int swap;
 
         do {
             a = in("введите первый столбец");
@@ -26,9 +26,9 @@ public class ArrOfArr8 {
         } while (b < 0 || b >= arr[0].length);
 
         for (int i = 0; i < arr.length; i++) {
-            swap[i] = arr[i][a];
+            swap = arr[i][a];
             arr[i][a] = arr[i][b];
-            arr[i][b] = swap[i];
+            arr[i][b] = swap;
         }
 
         for (int i = 0; i < arr.length; i++) {

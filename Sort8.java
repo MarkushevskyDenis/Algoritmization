@@ -10,8 +10,8 @@ package by.jonline.grow.algoritmization;
 public class Sort8 {
     public static void main(String[] args) {
 
-        int numerator[] = {1, 5, -12, 5, 23, 5, 2, 45, 2};
-        int denominator[] = {1, 4, 1, 6, 1, 4, 7, 1, 7};
+        int numerator[] =   {1, 5, -12};
+        int denominator[] = {1, 4,   1};
         int copy;
         int pr = 1;
         int sum = 0;
@@ -20,12 +20,13 @@ public class Sort8 {
 
             copy = numerator[i];
 
-            for (int j = 0; j < numerator.length; j++) {
-                if (i != j)
+            for (int j = 0; j < denominator.length; j++) {
+                if (i != j) {
                     numerator[i] *= denominator[j];
+                }
             }
-
             sum += numerator[i];
+
             numerator[i] = copy;
 
             pr *= denominator[i];

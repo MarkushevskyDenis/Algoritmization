@@ -7,10 +7,10 @@ package by.jonline.grow.algoritmization;
 public class Decomposition2 {
     public static void main(String[] args) {
 
-        int a = 1;
-        int b = 2;
-        int c = 3;
-        int d = 0;
+        int a = 10000;
+        int b = 333;
+        int c = 313;
+        int d = 1123;
 
 
         System.out.println("нод - " + nod(a, b, c, d));
@@ -25,12 +25,29 @@ public class Decomposition2 {
         }
 
         int nod = 1;
+        int min;
 
-        for (int i = 2; i <= a; i++) {
-            if (a % i == 0 && b % i == 0 && c % i == 0 && d % i == 0) nod = i;
+        min = min(a, b, c, d);
+        for (int i = 2; i <= min; i++) {
+            if (a % i == 0 && b % i == 0 && c % i == 0 && d % i == 0) {
+                nod = i;
+            }
         }
 
         return nod;
+
+    }
+
+    static int min(int... arr) {
+        int min = arr[0];
+
+        for (int i = 1; i < arr.length; i++) {
+            if (min > arr[i]) {
+                min = arr[i];
+            }
+        }
+
+        return min;
 
     }
 

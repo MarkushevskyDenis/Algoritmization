@@ -14,56 +14,53 @@ public class Decomposition15 {
 
         for (int i = (int) Math.pow(10, n - 1); i < Math.pow(10, n); i++) {
 
-            arr = numInArr(i);
+            arr = toArray(i);
 
-            int max = last(arr);
-            for (int j = 1; j < max; j++) {
-                if (arr[j] != arr[j + 1] + 1) {
+            for (int j = 0; j < arr.length - 1; j++) {
+                if (arr[j] + 1 != arr[j + 1] ) {
                     q = false;
                     break;
                 }
             }
 
             if (q) {
-                System.out.println(arrInNum(arr));
+                System.out.println(i);
             }
             q = true;
 
         }
     }
 
-    static int last(int arr[]) {
-        for (int j = arr.length - 1; j > 0; j--) {
-            if (arr[j] != 0) return j;
-        }
-        return 1;
-    }
-
-    static int arrInNum(int arr[]) {
-        int sum = 0;
-        for (int i = arr.length - 1; i > 0; i--) {
-            sum += arr[i] * Math.pow(10, i - 1);
-        }
-        return sum;
-    }
-
-    static int[] numInArr(int num) {
-
+    static int[] toArray(int num) {
+        int count;
         int i = 0;
-        int n[] = new int[12];
+        int n[];
 
-        do {
+        count = count(num);
+        n = new int[count];
+
+        for (; count > 0; count--) {
+            if (i != 0) {
+                num = num - n[i - 1] * (int) Math.pow(10, count);
+            }
+            n[i] = num / ((int) Math.pow(10, count - 1));
             i++;
-        } while (num / (int) Math.pow(10, i) != 0);
-
-        for (; i > 0; i--) {
-            num = num - n[i + 1] * (int) Math.pow(10, i);
-            int b = (int) Math.pow(10, i - 1);
-            n[i] = num / b;
         }
 
         return n;
 
     }
+
+    static int count(int num) {
+        int i = 0;
+
+        do {
+            i++;
+        } while (num / (int) Math.pow(10, i) != 0);
+
+        return i;
+
+    }
+
 
 }

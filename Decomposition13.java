@@ -9,36 +9,31 @@ package by.jonline.grow.algoritmization;
 public class Decomposition13 {
     public static void main(String[] args) {
 
-        int n = 100;
-        int primeNum;
+        int n = 40;
 
         for (int i = n; i <= 2 * n; i++) {
 
-            primeNum = primeNum(i);
-
-            if (primeNum == -1) {
+            if (!primeNum(i)) {
                 continue;
             }
 
-            if (primeNum(primeNum + 2) != -1) {
-                System.out.println(primeNum + " - " + (primeNum + 2));
+            if (primeNum(i + 2)) {
+                System.out.println(i + " - " + (i + 2));
             }
 
         }
 
     }
 
-    static int primeNum(int num) {
-        boolean q;
-        q = true;
+    static boolean primeNum(int num) {
+
         for (int j = 2; j <= num / j; j++) {
             if (num % j == 0) {
-                q = false;
-                break;
+                return false;
             }
         }
-        if (q) return num;
-        else return -1;
+
+        return true;
 
     }
 }

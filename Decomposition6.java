@@ -7,7 +7,7 @@ package by.jonline.grow.algoritmization;
 public class Decomposition6 {
     public static void main(String[] args) {
 
-        int a = 0;
+        int a = 4;
         int b = 56;
         int c = 2;
 
@@ -31,11 +31,31 @@ public class Decomposition6 {
         }
 
         int nod = 1;
+        int min;
 
-        for (int i = 2; i <= a; i++) {
-            if (a % i == 0 && b % i == 0 && c % i == 0) nod = i;
+        min = min(a, b, c);
+
+        for (int i = 2; i <= min; i++) {
+            if (a % i == 0 && b % i == 0 && c % i == 0) {
+                nod = i;
+            }
         }
 
         return nod;
     }
+
+    static int min(int... arr) {
+        int min = arr[0];
+
+        for (int i = 1; i < arr.length; i++) {
+            if (min > arr[i]) {
+                min = arr[i];
+            }
+        }
+
+        return min;
+
+    }
+
+
 }

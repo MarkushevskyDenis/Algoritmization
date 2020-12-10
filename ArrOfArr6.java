@@ -14,7 +14,7 @@ package by.jonline.grow.algoritmization;
 public class ArrOfArr6 {
     public static void main(String[] args) {
 
-        int n = 7;
+        int n = 6;
         int arr[][] = new int[n][n];
 
         for (int i = 0; i < n; i++) {

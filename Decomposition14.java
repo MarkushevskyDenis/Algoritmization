@@ -9,52 +9,60 @@ package by.jonline.grow.algoritmization;
 public class Decomposition14 {
     public static void main(String[] args) {
 
-        int k = 1000;
+        int k = 10000;
         int arr[];
         int sum;
 
-        for (int i = 1, j; i <= k; i++) {
+        for (int i = 1; i <= k; i++) {
 
-            arr = numInArr(i);
-            j = last(arr);
-            sum = sum(1, j, arr, j);
+            arr = toArray(i);
 
-            if (sum == i) System.out.println(i);
+            sum = sum(arr);
+
+            if (sum == i){
+                System.out.println(i);
+            }
+
         }
     }
 
-    static int sum(int k, int m, int arr[], int e) {
+    static int sum(int arr[]) {
         int sum = 0;
-        for (int i = k; i <= m; i++) {
-            sum += Math.pow(arr[i], e);
+        for (int i = 0; i < arr.length; i++) {
+            sum += Math.pow(arr[i], arr.length);
         }
         return sum;
     }
 
-    static int last(int arr[]) {
-        for (int j = arr.length - 1; j > 0; j--) {
-            if (arr[j] != 0) return j;
-        }
-        return 1;
-    }
-
-    static int[] numInArr(int num) {
-
+    static int[] toArray(int num){
+        int count;
         int i = 0;
-        int n[] = new int[12];
+        int n[];
 
-        do {
-            i++;
-        } while (num / (int) Math.pow(10, i) != 0);
+        count = count(num);
+        n = new int[count];
 
-        for (; i > 0; i--) {
-            num = num - n[i + 1] * (int) Math.pow(10, i);
-            int b = (int) Math.pow(10, i - 1);
+        for (; count > 0; count--) {
+            if (i != 0) {
+                num = num - n[i - 1] * (int) Math.pow(10, count);
+            }
+            int b = (int) Math.pow(10, count - 1);
             n[i] = num / b;
+            i++;
         }
 
         return n;
 
     }
 
+    static int count(int num){
+        int i = 0;
+
+        do {
+            i++;
+        } while (num / (int) Math.pow(10, i) != 0);
+
+        return i;
+
+    }
 }

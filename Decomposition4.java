@@ -13,7 +13,7 @@ public class Decomposition4 {
         int indI = 0;
         int indJ = 0;
         double max = 0;
-        double length = 0;
+        double length;
 
 
         for (int i = 0; i < x.length; i++) {

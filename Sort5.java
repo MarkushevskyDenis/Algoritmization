@@ -12,7 +12,7 @@ package by.jonline.grow.algoritmization;
 public class Sort5 {
     public static void main(String[] args) {
 
-        int arr[] = {1, 2, 41, -8, 1, 24, 5, 234, -12, 0, 5, 321, -41, 2, -1, 52, 4, 141};
+        int arr[] = {-10,10,100,0,-45};
         int ind;
         int swap;
 
@@ -32,7 +32,9 @@ public class Sort5 {
 
         }
 
-        for (int i = 0; i < arr.length; i++) System.out.print(arr[i] + " ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
 
     }
 

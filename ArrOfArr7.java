@@ -19,8 +19,13 @@ public class ArrOfArr7 {
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
+
                 arr[i][j] = Math.sin((double) (i * i - j * j) / n);
-                if (arr[i][j] > 0) positive++;
+                if (arr[i][j] > 0){
+                    positive++;
+
+                }
+
             }
 
         }

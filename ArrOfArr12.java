@@ -1,7 +1,7 @@
 package by.jonline.grow.algoritmization;
 
 /**
- *  Отсортировать строки матрицы по возрастанию и убыванию значений элементов.
+ * Отсортировать строки матрицы по возрастанию и убыванию значений элементов.
  */
 
 public class ArrOfArr12 {
@@ -12,29 +12,24 @@ public class ArrOfArr12 {
         for (int i = 0; i < arr.length; i++) {
 
             if (i % 2 == 0) {
-
                 sort(-1, arr[i]);                //k==1 по убыванию; k==1 по возрастанию
-
             } else {
-
                 sort(1, arr[i]);
-
             }
 
         }
 
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
-
                 System.out.print(arr[i][j] + " ");
-
             }
             System.out.println();
         }
 
     }
 
-    static void sort(int k, int... arr) {
+    static void sort(int k, int[] arr) { //gnome sort
+
         int i = 1;
         int j = 2;
         int t;

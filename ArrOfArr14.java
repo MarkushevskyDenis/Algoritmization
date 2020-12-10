@@ -9,7 +9,7 @@ public class ArrOfArr14 {
     public static void main(String[] args) {
 
         int m = 5;
-        int n = 3;
+        int n = 5;
 
         int arr[][] = new int[m][n];
         int count = 0;
@@ -17,12 +17,13 @@ public class ArrOfArr14 {
         for (int j = 0; j < n; j++) {
             for (int i = 0; i < m; i++) {
 
-                if (j >= m - i + count) {
+                if (j == m - i + count) {
                     arr[i][j] = 1;
+                    count++;
                     continue;
                 }
 
-                if (count >= j) {
+                if (count == j) {
                     break;
                 }
 

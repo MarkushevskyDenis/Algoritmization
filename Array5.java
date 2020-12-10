@@ -11,7 +11,9 @@ public class Array5 {
 
         for (int i = 0; i < a.length; i++) {
 
-            if (a[i] > i) System.out.println(a[i]);
+            if (a[i] > i){
+                System.out.println(a[i]);
+            }
 
         }
 

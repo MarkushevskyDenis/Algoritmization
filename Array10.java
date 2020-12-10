@@ -8,33 +8,17 @@ package by.jonline.grow.algoritmization;
 public class Array10 {
     public static void main(String[] args) {
 
-        int[] a = {1, 24, 4, 21, 44, 6, 1, 3, 4, 5, 2, 31, 3, 41, 43, 41, 32, 4};
-        boolean q = false;
+        int[] a = {1, 24, 4, 21, 44, 6, 1, 3, 4, 5, 2, 31, 3, 41, 43, 41, 32, 1};
 
         out(a);
 
         for (int i = 1; i < a.length; i++) {
 
-            if (i % 2 != 0 && q == false) {
-
-                for (int j = i; j < a.length - 1; j++) {
-                    a[j] = a[j + 1];
-                }
-
-                a[a.length - 1] = 0;
-                q = true;
-
+            for (int j = i; j < a.length - 1; j++) {
+                a[j] = a[j + 1];
             }
 
-            if (i % 2 == 0 && q == true) {
-
-                for (int j = i; j < a.length - 1; j++) {
-                    a[j] = a[j + 1];
-                }
-
-                q = false;
-
-            }
+            a[a.length - 1] = 0;
 
         }
 

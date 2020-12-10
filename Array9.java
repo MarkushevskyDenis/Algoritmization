@@ -12,6 +12,7 @@ public class Array9 {
         int[] count = new int[a.length];
         int maxOfCount;
         int minOfNum;
+        int ind = 0;
 
         for (int i = 0; i < a.length; i++) {
             for (int j = i + 1; j < a.length; j++) {
@@ -28,12 +29,14 @@ public class Array9 {
         for (int i = 1; i < count.length; i++) {
             if (count[i] > maxOfCount) {
                 maxOfCount = count[i];
+                ind = i;
             }
         }
 
-        minOfNum = a[a.length - 1];
+        minOfNum = a[ind];
 
-        for (int i = 0; i < a.length - 1; i++) {
+        for (int i = 0; i < a.length; i++) {
+
             if (count[i] == maxOfCount) {
                 if (a[i] < minOfNum) {
 
@@ -41,6 +44,7 @@ public class Array9 {
 
                 }
             }
+
         }
 
         System.out.println(minOfNum);

@@ -12,61 +12,60 @@ public class Decomposition12 {
         int n = 100;
 
         int[] arr;
-        int[] res = new int[n];
+        int[] res = new int[10];
         int sum;
 
         for (int i = 0, m = 0; i < n; i++) {
 
-            arr = numInArr(i);
+            arr = toArray(i);
 
-            sum = sum(1, last(arr), arr);
+            sum = sum(arr);
 
             if (sum == k) {
-                res[m] = arrInNum(arr);
+                res[m] = i;
                 m++;
             }
         }
 
-        for (int i = 0; i < res.length; i++) System.out.println(res[i]);
-    }
-
-    static int last(int arr[]) {
-        for (int j = arr.length - 1; j > 0; j--) {
-            if (arr[j] != 0) return j;
+        for (int i = 0; i < res.length; i++) {
+            System.out.println(res[i]);
         }
-        return 1;
     }
 
-    static int arrInNum(int arr[]) {
-        int sum = 0;
-        for (int i = arr.length - 1; i > 0; i--) {
-            sum += arr[i] * Math.pow(10, i - 1);
-        }
-        return sum;
-    }
-
-    static int[] numInArr(int num) {
-
+    static int[] toArray(int num) {
+        int count;
         int i = 0;
-        int n[] = new int[12];
+        int n[];
 
-        do {
+        count = count(num);
+        n = new int[count];
+
+        for (; count > 0; count--) {
+            if (i != 0) {
+                num = num - n[i - 1] * (int) Math.pow(10, count);
+            }
+            n[i] = num / ((int) Math.pow(10, count - 1));
             i++;
-        } while (num / (int) Math.pow(10, i) != 0);
-
-        for (; i > 0; i--) {
-            num = num - n[i + 1] * (int) Math.pow(10, i);
-            int b = (int) Math.pow(10, i - 1);
-            n[i] = num / b;
         }
 
         return n;
 
     }
 
-    static int sum(int k, int m, int arr[]) {
+    static int count(int num) {
+        int i = 0;
+
+        do {
+            i++;
+        } while (num / (int) Math.pow(10, i) != 0);
+
+        return i;
+
+    }
+
+    static int sum(int arr[]) {
         int sum = 0;
-        for (int i = k; i <= m; i++) {
+        for (int i = 0; i < arr.length; i++) {
             sum += arr[i];
         }
         return sum;

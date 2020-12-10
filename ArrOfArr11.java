@@ -33,7 +33,7 @@ public class ArrOfArr11 {
         for (int i = 0; i < 10; i++) {
 
             if (count[i] >= 3) {
-                System.out.println(i);
+                System.out.println("в строке " + i);
             }
 
         }

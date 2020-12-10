@@ -17,12 +17,12 @@ public class Decomposition9 {
 
         a = Math.sqrt(x * x + y * y);
 
-        s += s(x, y, a);
-        s += s(z, t, a);
+        s += sTr(x, y, a);
+        s += sTr(z, t, a);
         System.out.println("s = " + s);
     }
 
-    static double s(double a, double b, double c) {
+    static double sTr(double a, double b, double c) {
 
         double p;
 

@@ -8,51 +8,63 @@ package by.jonline.grow.algoritmization;
 public class Decomposition17 {
     public static void main(String[] args) {
         int num = 100;
-        System.out.println(raznost(num, numInArr(num), 0));
+        System.out.println(raznost(num));
     }
 
-    static int raznost(int num, int arr[], int count) {
+    static int raznost(int num) {
         int sum;
+        int[] arr;
+        int count = 0;
 
-        sum = sum(1, last(arr), arr);
-        num -= sum;
-        count++;
-        if (num == 0) return count;
-        else count = raznost(num, numInArr(num), count);
+        arr = toArray(num);
+        sum = sum(arr);
+
+        while (num != 0) {
+            num -= sum;
+            arr = toArray(num);
+            sum = sum(arr);
+            count++;
+        }
 
         return count;
 
     }
 
-    static int[] numInArr(int num) {
-
+    static int[] toArray(int num) {
+        int count;
         int i = 0;
-        int n[] = new int[12];
+        int n[];
 
-        do {
+        count = count(num);
+        n = new int[count];
+
+        for (; count > 0; count--) {
+            if (i != 0) {
+                num = num - n[i - 1] * (int) Math.pow(10, count);
+            }
+            n[i] = num / ((int) Math.pow(10, count - 1));
             i++;
-        } while (num / (int) Math.pow(10, i) != 0);
-
-        for (; i > 0; i--) {
-            num = num - n[i + 1] * (int) Math.pow(10, i);
-            int b = (int) Math.pow(10, i - 1);
-            n[i] = num / b;
         }
 
         return n;
 
     }
 
-    static int last(int arr[]) {
-        for (int j = arr.length - 1; j > 0; j--) {
-            if (arr[j] != 0) return j;
-        }
-        return 1;
+    static int count(int num) {
+        int i = 0;
+
+        do {
+            i++;
+        } while (num / (int) Math.pow(10, i) != 0);
+
+        return i;
+
     }
 
-    static int sum(int k, int m, int arr[]) {
+    static int sum(int arr[]) {
         int sum = 0;
-        for (int i = k; i <= m; i++) {
+
+        for (int i = 0; i < arr.length; i++) {
             sum += arr[i];
         }
         return sum;

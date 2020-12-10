@@ -14,7 +14,7 @@ package by.jonline.grow.algoritmization;
 
 public class ArrOfArr4 {
     public static void main(String[] args) {
-        int n = 5;
+        int n = 4;
         int[][] arr = new int[n][n];
 
         for (int i = 0; i < n; i++) {
@@ -35,6 +35,7 @@ public class ArrOfArr4 {
             }
             System.out.println();
         }
+
     }
 
 }
